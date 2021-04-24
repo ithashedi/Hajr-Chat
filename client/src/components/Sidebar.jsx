@@ -1,9 +1,13 @@
 import React, { useState, useContext } from 'react';
+// importing some elements from material ui
 import { Button, TextField, Grid, Typography, Container, Paper } from '@material-ui/core';
+// importing the function that will help us to copy the links
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+// here we are importing the icons
 import { Assignment, Phone, PhoneDisabled } from '@material-ui/icons';
+// here we are importing the this fuction that will allow us to style the component
 import { makeStyles } from '@material-ui/core/styles';
-
+// now we are getting our sockets which help our application to run
 import { SocketContext } from '../Context';
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid black',
   },
 }));
-
+// this is wehre well pass the children
 const Sidebar = ({ children }) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState('');

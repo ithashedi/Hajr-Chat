@@ -19,7 +19,7 @@ const io = require("socket.io")(server, {
 
 app.use(cors());
 // declearing our port
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 // now we will create our rout
 app.get("/", (req, res) => {
   // this will show when anyone vist the site and can see it's running
