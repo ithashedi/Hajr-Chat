@@ -8,8 +8,7 @@ import Peer from 'simple-peer';
 const SocketContext = createContext();
 
 // now we will point our socket to our back provider
-const socket = io('http://localhost:3000/');
-// const socket = io('https://warm-wildwood-81069.herokuapp.com');
+const socket = io('https://zinrack-chat-app.herokuapp.com/');
 // here we will place all the children which the useEstate (hooks) to make the application functional
 const ContextProvider = ({ children }) => {
   // in this use state we are checking if the call accepted
