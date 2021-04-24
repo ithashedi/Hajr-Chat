@@ -40,29 +40,35 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid black',
   },
 }));
-// this is wehre well pass the children
+// this is wehre well pass the children it's where we will get all fuctions
 const Sidebar = ({ children }) => {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
+  // here we will get our use id
   const [idToCall, setIdToCall] = useState('');
   const classes = useStyles();
 
   return (
     <Container className={classes.container}>
       <Paper elevation={10} className={classes.paper}>
+        {/* this form is where where the names whill be enterd and also where the link will be enterd when making  calls */}
         <form className={classes.root} noValidate autoComplete="off">
           <Grid container className={classes.gridContainer}>
             <Grid item xs={12} md={6} className={classes.padding}>
+              {/* here we will have all the account info */}
               <Typography gutterBottom variant="h6">Account Info</Typography>
               <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
               <CopyToClipboard text={me} className={classes.margin}>
+                {/* here we will have our button that will generate the link and copy it to the link */}
                 <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
                   Copy Your ID
                 </Button>
               </CopyToClipboard>
             </Grid>
+            {/* now we will make the second grid for making the call */}
             <Grid item xs={12} md={6} className={classes.padding}>
               <Typography gutterBottom variant="h6">Make a call</Typography>
               <TextField label="ID to call" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} fullWidth />
+              {/* here we will create the function that will hang up the call or accept the call */}
               {callAccepted && !callEnded ? (
                 <Button variant="contained" color="secondary" startIcon={<PhoneDisabled fontSize="large" />} fullWidth onClick={leaveCall} className={classes.margin}>
                   Hang Up
